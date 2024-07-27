@@ -1,2 +1,2 @@
-# gap-jenkins-prometheus
+# gcp-jenkins-prometheus
 In development
