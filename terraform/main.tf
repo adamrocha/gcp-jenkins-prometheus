@@ -16,7 +16,7 @@ provider "google" {
 }
 
 resource "google_compute_network" "vpc-network" {
-  name = "vpc-network"
+  name                    = "vpc-network"
   auto_create_subnetworks = "true"
 }
 
