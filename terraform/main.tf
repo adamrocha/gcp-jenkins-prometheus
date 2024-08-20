@@ -6,7 +6,7 @@ provider "google" {
 
 resource "google_project_service" "compute-api" {
   service            = "compute.googleapis.com"
-  disable_on_destroy = false
+  disable_on_destroy = true
 }
 
 resource "google_compute_network" "vpc-network" {
@@ -38,7 +38,8 @@ resource "google_compute_firewall" "ingress" {
 }
 
 resource "google_compute_address" "ipv4-static-a" {
-  name = "ipv4-static-a"
+  depends_on = [google_project_service.compute-api]
+  name       = "ipv4-static-a"
 }
 
 resource "google_compute_instance" "terraform-instance-a" {
