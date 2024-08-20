@@ -1,18 +1,12 @@
-# Define Terrraform Backend and Providers
-terraform {
-  required_version = "> 1.5"
-
-  required_providers {
-    google = {
-      version = "~> 5.0.0"
-    }
-  }
+provider "google" {
+  project = var.project_id
+  region  = var.region
+  zone    = var.zone
 }
 
-provider "google" {
-  project = "prometheus-430617"
-  region  = "us-central1"
-  zone    = "us-central1-c"
+resource "google_project_service" "compute-api" {
+  service            = "compute.googleapis.com"
+  disable_on_destroy = false
 }
 
 resource "google_compute_network" "vpc-network" {
