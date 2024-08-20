@@ -10,6 +10,7 @@ resource "google_project_service" "compute-api" {
 }
 
 resource "google_compute_network" "vpc-network" {
+  depends_on              = [google_project_service.compute-api]
   name                    = "vpc-network"
   auto_create_subnetworks = "true"
 }
