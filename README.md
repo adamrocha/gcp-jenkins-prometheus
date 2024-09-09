@@ -1,2 +1,5 @@
 # gcp-jenkins-prometheus
-In development
+WIP
+
+# Install gcloud CLI
+https://cloud.google.com/sdk/docs/install-sdk
